@@ -17,9 +17,9 @@ def xlsx_to_json_convert(xlsx_file):
         # write 'json_data' to a file
         with open(json_file, 'w') as file:
             file.write(json_data)
-        # print a sucess mensage, if the conversion is sucessful
-        print("Conversion sucessful. JSON file created: ", json_file)
-    # if it fails, print a error mensage and give a detailed description
+        # print a sucess message, if the conversion is sucessful
+        print("Conversion sucessful. JSON file created:", json_file)
+    # if it fails, print a error message and give a detailed description
     # of the error
     except Exception as e:
         print("An error occurred in the conversion of the file:", str(e))
