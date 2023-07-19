@@ -1,15 +1,15 @@
 import pandas as pd
 import os
-
+import json
 # function to convert a .xlsx file to a json file.
 def xlsx_to_json_convert(xlsx_file):
     try:
         # read the Excel file into the pandas dataframe
-        data_frame = pd.read_excel(xlsx_file)
-
+        data_frame = pd.read_excel(xlsx_file, skiprows=2)
+        print(data_frame)
         # convert the dataframe to a .json
-        json_data = data_frame.to_json(orient='records')
-
+        json_data = json.loads(data_frame.to_json(orient='index'))
+        json_data = json.dumps(json_data, indent=4)
         # create the output JSON filename based on the input filename
         input_filename = os.path.splitext(os.path.basename(xlsx_file))[0]
         json_file = f"{input_filename}.json"
@@ -24,5 +24,5 @@ def xlsx_to_json_convert(xlsx_file):
     except Exception as e:
         print("An error occurred in the conversion of the file:", str(e))
 
-xlsx_file = "~/Documents/it_desafio/anexos/Dados Sazonais Para o Brasil.xlsx"
+xlsx_file = "anexos/Dados_Sazonais_Para_o_Brasil.xlsx"
 xlsx_to_json_convert(xlsx_file)

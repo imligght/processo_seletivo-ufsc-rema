@@ -3,7 +3,8 @@ import os
 # a function to read the data from a pdf file
 def read_pdf(pdf_file):
     try:
-
+        # this line ensure the program will read correctly the path
+        # we're given to him
         pdf_file = os.path.expanduser(pdf_file)
 
         # opening the pdf file in 'rb' (reading binary)
@@ -21,6 +22,6 @@ def read_pdf(pdf_file):
     except Exception as e:
         print("An error ocurred while reading the PDF:", str(e))
 # the path of file you want to read
-pdf_file = "~/Documents/it_desafio/anexos/ContaCELESCExemplo2.pdf"
+pdf_file = "~/Documents/it_desafio/anexos/ContaCELESCExemplo1.pdf"
 
 read_pdf(pdf_file=pdf_file)
