@@ -11,7 +11,7 @@ def read_pdf(pdf_file):
         with open(pdf_file, 'rb') as file:
             pdf_reader = PyPDF2.PdfReader(file)
 
-            # here, i'm assuming the pdf has a single page
+            # here, I'm assuming the pdf has a single page
             page = pdf_reader.pages[0]
 
             # extract the data from the page
@@ -22,6 +22,6 @@ def read_pdf(pdf_file):
     except Exception as e:
         print("An error ocurred while reading the PDF:", str(e))
 # the path of file you want to read
-pdf_file = "~/Documents/it_desafio/anexos/ContaCELESCExemplo1.pdf"
+pdf_file = input("Insira o caminho do arquivo: ")
 
 read_pdf(pdf_file=pdf_file)
