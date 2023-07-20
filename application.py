@@ -23,9 +23,11 @@ Type 4 to show the emissions factor of the SIN\n"""))
                     new_emission_source =  EmissionSource(source_name, consumption_amount, year, month, state, total_co2emissions)
                     self.records.add_emission_source(new_emission_source)
 
+                    print(f"Register sucessful. The emission source ID {new_emission_source.id}")
+
                 except Exception as e:
-                    print("An error ocurred in the registration process: ", str(e))
-                    
+                    print('An error ocurred in the registration process: ', str(e))
+
                 print(self.records.emission_sources)
 
             elif option == 2:

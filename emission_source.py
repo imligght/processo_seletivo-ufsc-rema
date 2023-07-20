@@ -1,4 +1,5 @@
 class EmissionSource:
+    id: int
 
     def __init__(self, source_name, consumption_amount, year, month, state, total_co2emissions, id=None):
         if id == None:
@@ -8,7 +9,7 @@ class EmissionSource:
         else:
             self.id = id
 
-        self.source_name = source_name
+        self.name = source_name
         self.consumption_amount = consumption_amount
         self.year = year
         self.month = month
@@ -19,17 +20,14 @@ class EmissionSource:
         return self.total_co2emissions
     
     def __str__(self):
-        return f"{self.id}\n" \
-               f"{self.source_name}\n" \
-               f"{self.consumption_amount}\n" \
-               f"{self.year}\n" \
-               f"{self.month}\n" \
-               f"{self.state}\n" \
-               f"{self.total_co2emissions}\n"
+        return f"Emission Source ID: {self.id}\n" \
+               f"Source Name: {self.name}\n" \
+               f"Consumption Amount: {self.consumption_amount}\n" \
+               f"Year: {self.year}\n" \
+               f"Month: {self.month}\n" \
+               f"State: {self.state}\n" \
+               f"Total CO2 Emissions: {self.total_co2emissions}\n"
 
-    # def __del__(self):
-    #     self.save_next_id()
-    
     # def get_emission_source(self, emission_source):
     #     emission_source_atributs = EmissionSource().id, EmissionSource().source_name, EmissionSource().consumption_amount, EmissionSource().year, EmissionSource().month, EmissionSource().state, EmissionSource().total_co2emissions
     #     str(emission_source_atributs)

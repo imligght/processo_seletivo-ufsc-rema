@@ -8,12 +8,11 @@ class Records:
         # list of emission sources
         self.emission_sources = []
 
-        # gets the path of the current file
+        # gets the path to the current file
         current_path = os.path.dirname(__file__)
         self.sources_file_path = os.path.join(current_path, records_file_name)
         print(self.sources_file_path)
-        
-        # checks if records file does not already exists to use the default file name or not
+        # checks if records file does not already exist to use the default file name or not
         if not os.path.isfile(self.sources_file_path):
             with open(self.sources_file_path, 'w') as sources_file:
                 sources_file.write('id,source_name,consumption_amount,year,month,state,total_co2emissions')
@@ -32,6 +31,7 @@ class Records:
                     record_id = int(record_id)
 
                     source = EmissionSource(source_name, consumption_amount, year, month, state, total_co2emissions, record_id)
+                    self.add_emission_source(source)
 
             # max returns an EmissionSource object, so we access its id after the function call
             last_source_id = max(self.emission_sources, key=lambda x: x.id).id
@@ -44,13 +44,13 @@ class Records:
         self.emission_sources.append(new_source)
 
     def get_emission_source_by_id(self, source_id):
-           for source in self.emission_sources:
-               if source_id == source.id:
-                   return source
+        for source in self.emission_sources:
+            if source_id == source.id:
+                return source
 
     def get_all_emission_sources(self):
         return self.emission_sources
-    
+
     def __del__(self):
         with open(self.sources_file_path, 'a') as sources_file:
             for source in self.emission_sources[self.last_source_index_when_first_loaded:]:
