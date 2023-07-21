@@ -14,7 +14,7 @@ class Records:
         # checks if records file does not already exist to use the default file name or not
         if not os.path.isfile(self.sources_file_path):
             with open(self.sources_file_path, 'w') as sources_file:
-                sources_file.write('id,source_name,consumption_amount,year,month,state,total_co2emissions\n')
+                sources_file.write('id,source_name,consumption_amount,year,month,state,total_co2emission\n')
 
             last_source_id = -1
 
@@ -22,14 +22,14 @@ class Records:
             with open(self.sources_file_path, 'r') as sources_file:
                 # ignores the file header information
                 for line in sources_file.readlines()[1:]:
-                    record_id, source_name, consumption_amount, year, month, state, total_co2emissions = line.split(',')
+                    record_id, source_name, consumption_amount, year, month, state, total_co2emission = line.split(',')
                     consumption_amount = float(consumption_amount)
                     year = int(year)
                     month = int(month)
-                    total_co2emissions = float(total_co2emissions)
+                    total_co2emission = float(total_co2emission)
                     record_id = int(record_id)
 
-                    source = EmissionSource(source_name, consumption_amount, year, month, state, total_co2emissions, record_id)
+                    source = EmissionSource(source_name, consumption_amount, year, month, state, total_co2emission, record_id)
                     self.add_emission_source(source)
 
             if len(self.emission_sources) > 0:
@@ -57,5 +57,5 @@ class Records:
     def __del__(self):
         with open(self.sources_file_path, 'a') as sources_file:
             for source in self.emission_sources[self.last_source_index_when_first_loaded:]:
-                output_line = f'{source.id},{source.name},{source.consumption_amount},{source.year},{source.month},{source.state},{source.total_co2emissions}\n'
+                output_line = f'{source.id},{source.name},{source.consumption_amount},{source.year},{source.month},{source.state},{source.total_co2emission}\n'
                 sources_file.write(output_line)

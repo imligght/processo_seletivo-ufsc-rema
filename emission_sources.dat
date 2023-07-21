@@ -1,4 +1,4 @@
-id,source_name,consumption_amount,year,month,state,total_co2emissions
+id,source_name,consumption_amount,year,month,state,total_co2emission
 0,nome legal,600.0,2001,8,sc,1000.0
 1,nome_qualquer,700.0,2011,11,ro,1100.0
 2,blabla,34.0,2112,13,rr,3412423.0
