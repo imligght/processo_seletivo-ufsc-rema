@@ -25,7 +25,7 @@ To insert a PDF file type '2'\n"""))
                             year = int(input("Insert the year (yyyy): "))
                             month = int(input("Insert the month (mm): "))
                             state = input("Insert the state: ")
-                            new_emission_source =  EmissionSource(source_name, consumption_amount, year, month, state)
+                            new_emission_source =  EmissionSource(consumption_amount, year, month, source_name, state)
                             self.records.add_emission_source(new_emission_source)
 
                             print(f"Register sucessful. The emission source ID is: {new_emission_source.id}")
@@ -39,10 +39,7 @@ To insert a PDF file type '2'\n"""))
                         pdf_file = input("Insert the path of the PDF file: ")
                         extracted_data = extract_duedate_and_consumotion(pdf_file)
 
-                        duedate_value = extracted_data['duedate_value']
-                        consumption_value = extracted_data['consumption_value']
-
-                        print(duedate_value, consumption_value)
+                        print(extracted_data)
 
                 elif option == 2:
 

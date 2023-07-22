@@ -1,7 +1,7 @@
 class EmissionSource:
     id: int
 
-    def __init__(self, source_name, consumption_amount, year, month, state, total_co2emission, id=None):
+    def __init__(self, consumption_amount, year, month, state, source_name, total_co2emission=0, id=None):
         if id == None:
             EmissionSource.id += 1
             self.id = EmissionSource.id
@@ -17,6 +17,7 @@ class EmissionSource:
         self.total_co2emission = total_co2emission
 
     def total_co2emission_calculation(self):
+        pass
         
 
 
@@ -31,9 +32,3 @@ class EmissionSource:
                f"Month: {self.month}\n" \
                f"State: {self.state}\n" \
                f"Total CO2 Emissions: {self.total_co2emission}\n"
-
-    # def get_emission_source(self, emission_source):
-    #     emission_source_atributs = EmissionSource().id, EmissionSource().source_name, EmissionSource().consumption_amount, EmissionSource().year, EmissionSource().month, EmissionSource().state, EmissionSource().total_co2emission
-    #     str(emission_source_atributs)
-
-    #     return emission_source_atributs

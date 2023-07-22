@@ -3,31 +3,16 @@ import json
 import os
 
 # function to convert a .csv file to a json file.
-def csv_to_json_convert(csv_file):
+def excel_to_json_convert(excel_file):
     try:
         # read the Excel file into the pandas dataframe
-        data_frame = pd.read_csv(csv_file )
-
-        # newIndex = [None] * len(data_frame.columns)
-        # for i, index in enumerate(data_frame.columns):
-        #     if "Unnamed" in index[1]:
-        #         indexTuple = tuple(index[0])
-
-        #     else:
-        #         indexTuple[i] = index
-
-        #     newIndex = indexTuple
-
-        # data_frame.columns = pd.MultiIndex.from_tuples(newIndex)
-        # print(data_frame.columns)
-        # print(data_frame)
-
+        data_frame = pd.read_csv(excel_file)
         # convert the dataframe to a .json
         json_data = json.loads(data_frame.to_json(orient='columns'))
         json_data = json.dumps(json_data, indent=4)
 
         # create the output JSON filename based on the input filename
-        input_filename = os.path.splitext(os.path.basename(csv_file))[0]
+        input_filename = os.path.splitext(os.path.basename(excel_file))[0]
         json_file = f"{input_filename}.json"
         
         # write 'json_data' to a file
@@ -40,5 +25,5 @@ def csv_to_json_convert(csv_file):
     except Exception as e:
         print("An error occurred in the conversion of the file:", str(e))
 
-csv_file = "anexos/Dados_Sazonais_Para_o_Brasil.csv"
-csv_to_json_convert(csv_file)
+excel_file = input("Insert the path of the excel file: ")
+excel_to_json_convert(excel_file)

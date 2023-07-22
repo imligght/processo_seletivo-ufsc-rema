@@ -14,7 +14,7 @@ class Records:
         # checks if records file does not already exist to use the default file name or not
         if not os.path.isfile(self.sources_file_path):
             with open(self.sources_file_path, 'w') as sources_file:
-                sources_file.write('id,source_name,consumption_amount,year,month,state,total_co2emission\n')
+                sources_file.write('id,state,consumption_amount,year,month,source_name,total_co2emission\n')
 
             last_source_id = -1
 
