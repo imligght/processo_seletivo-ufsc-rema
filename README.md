@@ -10,7 +10,7 @@ The user can enter the data manually or insert a PDF file with the appropriate p
 
 ## How to use
 
-To use, just clone this repository using "git clone {link}" and run:
+To use, just clone this repository using "git clone https://github.com/imligght/processo_seletivo-ufsc-rema" and run:
 
 ### Windows
 ```
