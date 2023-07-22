@@ -19,8 +19,6 @@ class EmissionSource:
     def total_co2emission_calculation(self):
         pass
         
-
-
     def view_total_co2_emissions(self):
         return self.total_co2emission
     

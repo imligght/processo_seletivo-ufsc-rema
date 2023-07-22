@@ -61,6 +61,7 @@ def extract_duedate_and_consumotion(pdf_file_path):
 
             if duedate_value and consumption_value:
                 try:
+                    # assume the state as 'SC' as requested
                     default_state = 'SC'
                     source_name = input("Insert the name of the source: ")
                     new_emission_source = EmissionSource(consumption_value, duedate_value[-4:], duedate_value[3:5], default_state, source_name)

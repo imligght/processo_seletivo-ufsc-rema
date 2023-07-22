@@ -42,18 +42,18 @@ class Records:
         self.last_source_index_when_first_loaded = len(self.emission_sources)
         print(self.last_source_index_when_first_loaded)
         EmissionSource.id = last_source_id
-
+    # function to add a new emission source
     def add_emission_source(self, new_source):
         self.emission_sources.append(new_source)
-
+    # a function to search for a emission source from its id
     def get_emission_source_by_id(self, source_id):
         for source in self.emission_sources:
             if source_id == source.id:
                 return source
-
+    # a function to return all the emission sources
     def get_all_emission_sources(self):
         return self.emission_sources
-
+    # a special method to append the source before the object is discarted
     def __del__(self):
         with open(self.sources_file_path, 'a') as sources_file:
             for source in self.emission_sources[self.last_source_index_when_first_loaded:]:
