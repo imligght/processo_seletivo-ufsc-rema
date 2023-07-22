@@ -12,7 +12,8 @@ class Application:
                 option = int(input("""Type '1' to register a new emission source
 Type '2' to show a source and its emission for a specific id
 Type '3' to show all the sources and its emissions
-Type '4' to show the emissions factor of the SIN\n"""))
+Type '4' to show the emissions factor of the SIN
+Type '5' to quit\n"""))
 
                 if option == 1:
                     pdf_or_manually = int(input("""To fill the data manually type '1'
